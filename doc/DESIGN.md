@@ -57,3 +57,11 @@ Low:
 -   Grid view, which prioritizes the image rather than the title,
 -   Ability for users to publicly comment on others' profiles,
 -   Private messages between users.
+
+## Information flow
+
+This project involves a non-trivial number of models and screens. The flowchart below outlines the flow between screens.
+
+![Flowchart of information flow between components](information-flow.png)
+
+Editable version of the flowchart in the [draw.io](https://github.com/jgraph/drawio) format available [here](information-flow.drawio).
