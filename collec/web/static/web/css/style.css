@@ -1,0 +1,36 @@
+/* region Landing page */
+
+#eyecatch {
+    text-align: center;
+}
+
+#everything {
+    position: relative;
+}
+
+#stuff::after {
+    display: block;
+    position: absolute;
+    bottom: 1.2em;
+    left: 0;
+    content: "games.";
+}
+
+#stuff::before {
+    display: block;
+    position: absolute;
+    bottom: 2.4em;
+    left: 0;
+    content: "books.";
+}
+
+/* endregion */
+
+/* region Header */
+
+#sign-in-error-text,
+#collection-error-text {
+    color: var(--del-color);
+}
+
+/* endregion */
