@@ -47,11 +47,13 @@ High:
 Medium:
 
 -   Item suggestions from content catalogues like MusicBrainz or Mobygames,
--   Import of items from other trackers, if they have an export feature,
 -   Data export feature into a format like JSON,
+-   Custom item tags,
 -   Inline help with pop-up assistance.
 
 Low:
 
+-   Import of items from other trackers, if they have an export feature,
+-   Grid view, which prioritizes the image rather than the title,
 -   Ability for users to publicly comment on others' profiles,
 -   Private messages between users.
