@@ -65,3 +65,43 @@ This project involves a non-trivial number of models and screens. The flowchart 
 ![Flowchart of information flow between components](information-flow.png)
 
 Editable version of the flowchart in the [draw.io](https://github.com/jgraph/drawio) format available [here](information-flow.drawio).
+
+## Wireframes
+
+Landing page (desktop)
+
+![Wireframe of the landing page on desktop](wireframes/landing-desktop.png)
+
+Landing page (mobile)
+
+![Wireframe of the landing page on mobile](wireframes/landing-mobile.png)
+
+User dashboard (desktop)
+
+![Wireframe of the user dashboard on desktop](wireframes/dashboard-desktop.png)
+
+User dashboard (mobile)
+
+![Wireframe of the user dashboard on mobile](wireframes/dashboard-mobile.png)
+
+Item list (desktop)
+
+![Wireframe of the item list on desktop](wireframes/item-list-desktop.png)
+
+Item list (mobile)
+
+![Wireframe of the item list on desktop](wireframes/item-list-mobile.png)
+
+Sign-in modal
+
+![Wireframe of the sign-in modal](wireframes/sign-in.png)
+
+Sign-up modal
+
+![Wireframe of the sign-up modal](wireframes/sign-up.png)
+
+Item editor modal
+
+![Wireframe of the item editor modal](wireframes/item-editor.png)
+
+The wireframe set in [Balsamiq](https://balsamiq.com/wireframes/) format is available [here](wireframes/wireframes.bmpr).
