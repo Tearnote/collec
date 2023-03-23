@@ -113,3 +113,8 @@ class MovieDetails(models.Model):
         constraints = [
             models.CheckConstraint(check=Q(item__type='MV'), name='movie_type_constraint')
         ]
+
+
+class Tag(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    value = models.CharField(max_length=50)
