@@ -11,12 +11,19 @@
 
     <!-- Vendor styles -->
     {% if debug %}
-        <link rel="stylesheet" href="{% static 'css/pico.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     {% else %}
-        <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     {% endif %}
     <!-- Custom styles -->
     <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+
+    <!-- Vendor JS -->
+    {% if debug %}
+        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.js' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+    {% endif %}
 </head>
 
 <body>
