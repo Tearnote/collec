@@ -9,6 +9,9 @@ class Settings(models.Model):
     booksEnabled = models.BooleanField(default=True)
     moviesEnabled = models.BooleanField(default=True)
     videogamesEnabled = models.BooleanField(default=True)
+    class Meta:
+
+        verbose_name_plural = "settings"
 
 
 class Item(models.Model):
@@ -39,6 +42,9 @@ class BookDetails(models.Model):
     title = models.CharField(max_length=500)
     author = models.CharField(max_length=250)
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
+
+    class Meta:
+        verbose_name_plural = "book details"
 
     def clean(self):
         if self.item.type != 'BK':
@@ -89,6 +95,9 @@ class VideogameDetails(models.Model):
     platform = models.CharField(max_length=3, choices=PLATFORM_CHOICES)
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
 
+    class Meta:
+        verbose_name_plural = "videogame details"
+
     def clean(self):
         if self.item.type != 'VG':
             raise ValidationError('Videogame details added to a non-videogame item')
@@ -106,6 +115,9 @@ class MovieDetails(models.Model):
     item = models.OneToOneField(Item, on_delete=models.CASCADE)
     title = models.CharField(max_length=500)
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
+
+    class Meta:
+        verbose_name_plural = "movie details"
 
     def clean(self):
         if self.item.type != 'MV':
