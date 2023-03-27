@@ -9,9 +9,12 @@ class Settings(models.Model):
     booksEnabled = models.BooleanField(default=True)
     moviesEnabled = models.BooleanField(default=True)
     videogamesEnabled = models.BooleanField(default=True)
-    class Meta:
 
-        verbose_name_plural = "settings"
+    class Meta:
+        verbose_name_plural = 'settings'
+
+    def __str__(self):
+        return f'{self.user}\'s settings'
 
 
 class Item(models.Model):
@@ -29,6 +32,21 @@ class Item(models.Model):
         validators.MaxValueValidator(10)
     ])
 
+    def __str__(self):
+        try:
+            if self.type == 'VG':
+                return f'[{self.user}] {self.videogamedetails.title}'
+            if self.type == 'BK':
+                return f'[{self.user}] {self.bookdetails.title}'
+            if self.type == 'MV':
+                return f'[{self.user}] {self.moviedetails.title}'
+        except VideogameDetails.DoesNotExist:
+            return f'[{self.user}] [UNLINKED VIDEOGAME]'
+        except BookDetails.DoesNotExist:
+            return f'[{self.user}] [UNLINKED BOOK]'
+        except MovieDetails.DoesNotExist:
+            return f'[{self.user}] [UNLINKED MOVIE]'
+
 
 class BookDetails(models.Model):
     OWNED_CHOICES = [
@@ -44,7 +62,10 @@ class BookDetails(models.Model):
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
 
     class Meta:
-        verbose_name_plural = "book details"
+        verbose_name_plural = 'book details'
+
+    def __str__(self):
+        return f'[{self.item.user}] {self.title}'
 
     def clean(self):
         if self.item.type != 'BK':
@@ -96,7 +117,10 @@ class VideogameDetails(models.Model):
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
 
     class Meta:
-        verbose_name_plural = "videogame details"
+        verbose_name_plural = 'videogame details'
+
+    def __str__(self):
+        return f'[{self.item.user}] {self.title}'
 
     def clean(self):
         if self.item.type != 'VG':
@@ -117,7 +141,10 @@ class MovieDetails(models.Model):
     owned = models.CharField(max_length=2, default='', choices=OWNED_CHOICES)
 
     class Meta:
-        verbose_name_plural = "movie details"
+        verbose_name_plural = 'movie details'
+
+    def __str__(self):
+        return f'[{self.item.user}] {self.title}'
 
     def clean(self):
         if self.item.type != 'MV':
@@ -127,3 +154,6 @@ class MovieDetails(models.Model):
 class Tag(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     value = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'{self.item}: {self.value}'
