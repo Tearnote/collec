@@ -1,7 +1,7 @@
 /* region Landing page */
 
 #eyecatch {
-    text-align: center;
+    min-height: 75vh;
 }
 
 #track {
@@ -22,15 +22,6 @@
     bottom: 2.4em;
     left: 0;
     content: "books.";
-}
-
-/* endregion */
-
-/* region Header */
-
-#sign-in-error-text,
-#collection-error-text {
-    color: var(--del-color);
 }
 
 /* endregion */
