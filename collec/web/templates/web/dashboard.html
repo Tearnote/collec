@@ -1,0 +1,74 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Collec. Track your stuff!</title>
+
+    <!-- Vendor styles -->
+    {% if debug %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% endif %}
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+
+    <!-- Vendor JS -->
+    {% if debug %}
+        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.js' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+    {% endif %}
+</head>
+<body>
+
+<header class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col">
+            <a href="/"><h1>{{user}}'s Dashboard</h1></a>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-outline-primary">Sign in</button>
+        </div>
+    </div>
+    <nav class="nav">
+        <a class="nav-link" href="/{{user}}/books/">Books</a>
+        <a class="nav-link" href="/{{user}}/videogames/">Videogames</a>
+        <a class="nav-link" href="/{{user}}/music/">Music</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h2>Latest</h2>
+    <section>
+        <div class="row">
+            <h3 class="col-auto">Books</h3>
+            <button role="button" class="col-auto btn btn-secondary">+</button>
+        </div>
+        <ul>
+            {% for book in books %}
+                <li class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{book.bookdetails.title}}</h4>
+                        <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
+                        <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
+                        <p>{{book.rating}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+
+<footer class="container-fluid border-top pt-2 mt-4">
+    <p>Collec, Copyright 2023</p>
+</footer>
+
+</body>
+
+</html>
