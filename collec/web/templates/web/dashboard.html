@@ -68,6 +68,41 @@
             {% endfor %}
         </ul>
     </section>
+    <section>
+        <div class="row">
+            <h3 class="col-auto">Videogames</h3>
+            <button role="button" class="col-auto btn btn-secondary">+</button>
+        </div>
+        <ul>
+            {% for videogame in videogames %}
+                <li class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
+                        <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
+                        <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
+                        {% ratings videogame template_name="web/star_rating.html" %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section>
+        <div class="row">
+            <h3 class="col-auto">Movies</h3>
+            <button role="button" class="col-auto btn btn-secondary">+</button>
+        </div>
+        <ul>
+            {% for movie in movies %}
+                <li class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{movie.moviedetails.title}}</h4>
+                        <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
+                        {% ratings movie template_name="web/star_rating.html" %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
 </main>
 
 <footer class="container-fluid border-top pt-2 mt-4">

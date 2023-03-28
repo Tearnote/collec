@@ -12,8 +12,12 @@ def dashboard(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
     books = Item.objects.filter(user=user, type='BK')
+    videogames = Item.objects.filter(user=user, type='VG')
+    movies = Item.objects.filter(user=user, type='MV')
     context = {
         'user': user,
         'books': books,
+        'videogames': videogames,
+        'movies': movies,
     }
     return render(request, 'web/dashboard.html', context)
