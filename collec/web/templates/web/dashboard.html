@@ -1,4 +1,5 @@
 {% load static %}
+{% load ratings %}
 
 <!doctype html>
 <html lang="en">
@@ -12,17 +13,21 @@
     <!-- Vendor styles -->
     {% if debug %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     {% else %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     {% endif %}
     <!-- Custom styles -->
     <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
 
     <!-- Vendor JS -->
     {% if debug %}
-        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.js' %}">
+        <script type="text/javascript" src="{% static 'js/bootstrap.bundle.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.js' %}" defer></script>
     {% else %}
-        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+        <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}" defer></script>
     {% endif %}
 </head>
 <body>
@@ -57,7 +62,7 @@
                         <h4 class="card-title">{{book.bookdetails.title}}</h4>
                         <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                         <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
-                        <p>{{book.rating}}</p>
+                        {% ratings book template_name="web/star_rating.html" %}
                     </div>
                 </li>
             {% endfor %}
