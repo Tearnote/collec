@@ -6,9 +6,9 @@
 {% block header_nav %}
 
 <nav class="nav">
-    <a class="nav-link" href="/{{user}}/books/">Books</a>
-    <a class="nav-link" href="/{{user}}/videogames/">Videogames</a>
-    <a class="nav-link" href="/{{user}}/movies/">Movies</a>
+    <a class="nav-link" href="{% url 'book_list' user %}">Books</a>
+    <a class="nav-link" href="{% url 'videogame_list' user %}">Videogames</a>
+    <a class="nav-link" href="{% url 'movie_list' user %}">Movies</a>
 </nav>
 
 {% endblock %}
