@@ -7,7 +7,7 @@
     <h2>Latest</h2>
     <section>
         <div class="row">
-            <h3 class="col-auto">Books</h3>
+            <a href="{% url 'book_list' user %}"><h3 class="col-auto">Books</h3></a>
             <button role="button" class="col-auto btn btn-secondary">+</button>
         </div>
         <ul>
@@ -25,7 +25,7 @@
     </section>
     <section>
         <div class="row">
-            <h3 class="col-auto">Videogames</h3>
+            <a href="{% url 'videogame_list' user %}"><h3 class="col-auto">Videogames</h3></a>
             <button role="button" class="col-auto btn btn-secondary">+</button>
         </div>
         <ul>
@@ -43,7 +43,7 @@
     </section>
     <section>
         <div class="row">
-            <h3 class="col-auto">Movies</h3>
+            <a href="{% url 'movie_list' user %}"><h3 class="col-auto">Movies</h3></a>
             <button role="button" class="col-auto btn btn-secondary">+</button>
         </div>
         <ul>
