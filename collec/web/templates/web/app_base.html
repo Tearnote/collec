@@ -6,6 +6,7 @@
 {% block header_nav %}
 
 <nav class="nav">
+    <a class="nav-link" href="{% url 'dashboard' user %}">Dashboard</a>
     <a class="nav-link" href="{% url 'book_list' user %}">Books</a>
     <a class="nav-link" href="{% url 'videogame_list' user %}">Videogames</a>
     <a class="nav-link" href="{% url 'movie_list' user %}">Movies</a>
