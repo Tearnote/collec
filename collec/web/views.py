@@ -21,3 +21,14 @@ def dashboard(request, **kwargs):
         'movies': movies,
     }
     return render(request, 'web/dashboard.html', context)
+
+
+def book_list(request, **kwargs):
+    username = kwargs['username']
+    user = get_object_or_404(User, username=username)
+    books = Item.objects.filter(user=user, type='BK')
+    context = {
+        'user': user,
+        'books': books,
+    }
+    return render(request, 'web/book_list.html', context)
