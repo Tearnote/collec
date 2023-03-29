@@ -1,0 +1,14 @@
+{% extends "web/base.html" %}
+
+{% block title %}Collec. {{user}}'s Dashboard{% endblock %}
+{% block header_title %}{{user}}'s Dashboard{% endblock %}
+
+{% block header_nav %}
+
+<nav class="nav">
+    <a class="nav-link" href="/{{user}}/books/">Books</a>
+    <a class="nav-link" href="/{{user}}/videogames/">Videogames</a>
+    <a class="nav-link" href="/{{user}}/music/">Music</a>
+</nav>
+
+{% endblock %}

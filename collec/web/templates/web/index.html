@@ -1,89 +1,49 @@
-{% load static %}
+{% extends "web/base.html" %}
+{% block title %}Collec. Track your stuff!{% endblock %}
+{% block header_title %}Collec{% endblock %}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Metadata -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Collec. Track your stuff!</title>
+{% block content %}
 
-    <!-- Vendor styles -->
-    {% if debug %}
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    {% else %}
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    {% endif %}
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+    <main class="container-fluid">
+        <section id="eyecatch" class="container text-center d-flex flex-column align-items-center justify-content-center">
+            <h2>Track your <span id="track">videogames.</span></h2>
+            <button type="button" class="btn btn-primary">Sign up</button>
+        </section>
+        <section class="container">
+            <div class="row">
+                <article class="card col-md mx-md-2 mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">All in one place.</h3>
+                        <p class="card-text">
+                            With <em>Collec</em> you can track anything you own. At the
+                            moment collections of books, videogames and movies are
+                            supported. More are on the way!
+                        </p>
+                    </div>
+                </article>
+                <article class="card col-md mx-md-2 mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Fields you care about.</h3>
+                        <p class="card-text">
+                            No more cluttered interfaces. You can fully customize your
+                            profile to only feature the parts you like. Not into rating
+                            your collection items? No problem!
+                        </p>
+                    </div>
+                </article>
+                <article class="card col-md mx-md-2 mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Own your data.</h3>
+                        <p class="card-text">
+                            <em>Collec</em> is opensource, and can be hosted by anyone.
+                            Your collections can be exported to a JSON format, for later
+                            import in a different instance, or for use by any external
+                            utilities.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
 
-    <!-- Vendor JS -->
-    {% if debug %}
-        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.js' %}">
-    {% else %}
-        <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
-    {% endif %}
-</head>
-<body>
-
-<header class="container-fluid">
-    <div class="row align-items-center">
-        <div class="col">
-            <a href="/"><h1>Collec</h1></a>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-outline-primary">Sign in</button>
-        </div>
-    </div>
-</header>
-
-<main class="container-fluid">
-    <section id="eyecatch" class="container text-center d-flex flex-column align-items-center justify-content-center">
-        <h2>Track your <span id="track">videogames.</span></h2>
-        <button type="button" class="btn btn-primary">Sign up</button>
-    </section>
-    <section class="container">
-        <div class="row">
-            <article class="card col-md mx-md-2 mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">All in one place.</h3>
-                    <p class="card-text">
-                        With <em>Collec</em> you can track anything you own. At the
-                        moment collections of books, videogames and movies are
-                        supported. More are on the way!
-                    </p>
-                </div>
-            </article>
-            <article class="card col-md mx-md-2 mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Fields you care about.</h3>
-                    <p class="card-text">
-                        No more cluttered interfaces. You can fully customize your
-                        profile to only feature the parts you like. Not into rating
-                        your collection items? No problem!
-                    </p>
-                </div>
-            </article>
-            <article class="card col-md mx-md-2 mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Own your data.</h3>
-                    <p class="card-text">
-                        <em>Collec</em> is opensource, and can be hosted by anyone.
-                        Your collections can be exported to a JSON format, for later
-                        import in a different instance, or for use by any external
-                        utilities.
-                    </p>
-                </div>
-            </article>
-        </div>
-    </section>
-</main>
-
-<footer class="container-fluid border-top pt-2 mt-4">
-    <p>Collec, Copyright 2023</p>
-</footer>
-
-</body>
-
-</html>
+{% endblock %}
