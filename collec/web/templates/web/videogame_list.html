@@ -1,0 +1,27 @@
+{% extends "web/list_base.html" %}
+{% load ratings %}
+
+{% block title %}Collec. {{user}}'s Videogames{% endblock %}
+{% block header_title %}{{user}}'s Videogames{% endblock %}
+
+{% block sort_options %}
+<option value="title">Title</option>
+<option value="platform">Platform</option>
+<option value="created">Date created</option>
+<option value="modified">Date modified</option>
+{% endblock %}
+
+{% block card_list %}
+
+    {% for videogame in videogames %}
+        <li class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
+                <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
+                <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
+                {% ratings videogame template_name="web/star_rating.html" %}
+            </div>
+        </li>
+    {% endfor %}
+
+{% endblock %}

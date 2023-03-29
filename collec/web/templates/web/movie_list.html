@@ -1,0 +1,25 @@
+{% extends "web/list_base.html" %}
+{% load ratings %}
+
+{% block title %}Collec. {{user}}'s Movies{% endblock %}
+{% block header_title %}{{user}}'s Movies{% endblock %}
+
+{% block sort_options %}
+<option value="title">Title</option>
+<option value="created">Date created</option>
+<option value="modified">Date modified</option>
+{% endblock %}
+
+{% block card_list %}
+
+    {% for movie in movies %}
+        <li class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{movie.moviedetails.title}}</h4>
+                <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
+                {% ratings movie template_name="web/star_rating.html" %}
+            </div>
+        </li>
+    {% endfor %}
+
+{% endblock %}

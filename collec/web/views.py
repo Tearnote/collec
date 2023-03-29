@@ -32,3 +32,25 @@ def book_list(request, **kwargs):
         'books': books,
     }
     return render(request, 'web/book_list.html', context)
+
+
+def videogame_list(request, **kwargs):
+    username = kwargs['username']
+    user = get_object_or_404(User, username=username)
+    videogames = Item.objects.filter(user=user, type='VG')
+    context = {
+        'user': user,
+        'videogames': videogames,
+    }
+    return render(request, 'web/videogame_list.html', context)
+
+
+def movie_list(request, **kwargs):
+    username = kwargs['username']
+    user = get_object_or_404(User, username=username)
+    movies = Item.objects.filter(user=user, type='MV')
+    context = {
+        'user': user,
+        'movies': movies,
+    }
+    return render(request, 'web/movie_list.html', context)

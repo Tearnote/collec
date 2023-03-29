@@ -1,41 +1,27 @@
-{% extends "web/app_base.html" %}
+{% extends "web/list_base.html" %}
 {% load ratings %}
 
 {% block title %}Collec. {{user}}'s Books{% endblock %}
 {% block header_title %}{{user}}'s Books{% endblock %}
 
-{% block content %}
+{% block sort_options %}
+<option value="title">Title</option>
+<option value="author">Author</option>
+<option value="created">Date created</option>
+<option value="modified">Date modified</option>
+{% endblock %}
 
-<main class="container">
-    <div class="navbar">
-        <form class="d-flex align-items-center">
-            <button class="btn btn-secondary me-4" type="button">+</button>
-            <label class="d-flex me-4">
-                Order by:
-                <select class="form-select" name="sort">
-                    <option value="title">Title</option>
-                    <option value="author">Author</option>
-                    <option value="created">Date created</option>
-                    <option value="modified">Date modified</option>
-                </select>
-            </label>
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
+{% block card_list %}
 
-    <ol>
-        {% for book in books %}
-            <li class="card">
-                <div class="card-body">
-                    <h4 class="card-title">{{book.bookdetails.title}}</h4>
-                    <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
-                    <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
-                    {% ratings book template_name="web/star_rating.html" %}
-                </div>
-            </li>
-        {% endfor %}
-    </ol>
-</main>
+    {% for book in books %}
+        <li class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{book.bookdetails.title}}</h4>
+                <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
+                <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
+                {% ratings book template_name="web/star_rating.html" %}
+            </div>
+        </li>
+    {% endfor %}
 
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "web/app_base.html" %}
+
+{% block content %}
+
+<main class="container">
+    <div class="navbar">
+        <form class="d-flex align-items-center">
+            <button class="btn btn-secondary me-4" type="button">+</button>
+            <label class="d-flex me-4">
+                Order by:
+                <select class="form-select" name="sort">
+                    {% block sort_options %}
+                        <option value="created">Date created</option>
+                        <option value="modified">Date modified</option>
+                    {% endblock %}
+                </select>
+            </label>
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+
+    <ol>
+        {% block card_list %}{% endblock %}
+    </ol>
+</main>
+
+{% endblock %}
