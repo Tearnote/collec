@@ -17,7 +17,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{movie.moviedetails.title}}</h4>
                 <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
-                {% ratings movie template_name="web/star_rating.html" %}
+                {% ratings movie readonly template_name="web/star_rating.html" %}
             </div>
         </li>
     {% endfor %}

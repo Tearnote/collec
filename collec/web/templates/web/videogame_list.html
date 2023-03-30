@@ -19,7 +19,7 @@
                 <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
                 <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                 <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
-                {% ratings videogame template_name="web/star_rating.html" %}
+                {% ratings videogame readonly template_name="web/star_rating.html" %}
             </div>
         </li>
     {% endfor %}

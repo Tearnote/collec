@@ -19,7 +19,7 @@
                 <h4 class="card-title">{{book.bookdetails.title}}</h4>
                 <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                 <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
-                {% ratings book template_name="web/star_rating.html" %}
+                {% ratings book readonly template_name="web/star_rating.html" %}
             </div>
         </li>
     {% endfor %}
