@@ -35,6 +35,7 @@ def book_list(request, **kwargs):
     context = {
         'user': user,
         'books': books,
+        'search_string': search_string,
     }
     return render(request, 'web/book_list.html', context)
 
@@ -49,6 +50,7 @@ def videogame_list(request, **kwargs):
     context = {
         'user': user,
         'videogames': videogames,
+        'search_string': search_string,
     }
     return render(request, 'web/videogame_list.html', context)
 
@@ -63,5 +65,6 @@ def movie_list(request, **kwargs):
     context = {
         'user': user,
         'movies': movies,
+        'search_string': search_string,
     }
     return render(request, 'web/movie_list.html', context)

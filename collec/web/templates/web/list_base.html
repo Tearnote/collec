@@ -15,7 +15,7 @@
                     {% endblock %}
                 </select>
             </label>
-            <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="{{search_string|default:""}}">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
