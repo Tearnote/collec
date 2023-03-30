@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
 from collec.web.models import Item
@@ -26,7 +27,11 @@ def dashboard(request, **kwargs):
 def book_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
+    search_string = request.GET.get('q')
     books = Item.objects.filter(user=user, type='BK')
+    if search_string:
+        books = books.filter(Q(bookdetails__title__icontains=search_string) |
+                             Q(bookdetails__author__icontains=search_string))
     context = {
         'user': user,
         'books': books,
@@ -37,7 +42,10 @@ def book_list(request, **kwargs):
 def videogame_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
+    search_string = request.GET.get('q')
     videogames = Item.objects.filter(user=user, type='VG')
+    if search_string:
+        videogames = videogames.filter(Q(videogamedetails__title__icontains=search_string))
     context = {
         'user': user,
         'videogames': videogames,
@@ -48,7 +56,10 @@ def videogame_list(request, **kwargs):
 def movie_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
+    search_string = request.GET.get('q')
     movies = Item.objects.filter(user=user, type='MV')
+    if search_string:
+        movies = movies.filter(Q(moviedetails__title__icontains=search_string))
     context = {
         'user': user,
         'movies': movies,
