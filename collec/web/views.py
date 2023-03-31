@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
+from collec.web.forms import BookForm
 from collec.web.models import Item
 
 
@@ -49,7 +50,10 @@ def book_list(request, **kwargs):
 
 
 def book_add(request, **kwargs):
-    return render(request, 'web/detail_base.html')
+    context = {
+        'form': BookForm(),
+    }
+    return render(request, 'web/detail_base.html', context)
 
 
 def videogame_list(request, **kwargs):
