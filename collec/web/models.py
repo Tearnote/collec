@@ -28,9 +28,6 @@ class Item(models.Model):
     type = models.CharField(max_length=2, choices=TYPE_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    rating = models.PositiveSmallIntegerField(default=0, validators=[
-        validators.MaxValueValidator(10)
-    ])
 
     def __str__(self):
         try:
