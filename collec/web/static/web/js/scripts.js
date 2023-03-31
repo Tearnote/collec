@@ -12,3 +12,16 @@ const resetForm = function(e) {
     search.value = "";
     form.submit();
 }
+
+const showAddModal = async function() {
+    const response = await fetch(window.location.href + "add/");
+    const html = await response.text();
+    const el = document.createElement("div");
+    el.innerHTML = html;
+    document.body.append(el);
+    const modal = new bootstrap.Modal(el.firstElementChild);
+    modal.show();
+    el.addEventListener("hidden.bs.modal", function() {
+        el.remove();
+    })
+}

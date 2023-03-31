@@ -48,6 +48,10 @@ def book_list(request, **kwargs):
     return render(request, 'web/book_list.html', context)
 
 
+def book_add(request, **kwargs):
+    return render(request, 'web/detail_base.html')
+
+
 def videogame_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
