@@ -5,10 +5,10 @@
 {% block header_title %}{{user}}'s Videogames{% endblock %}
 
 {% block sort_options %}
-<option value="title">Title</option>
-<option value="platform">Platform</option>
-<option value="created">Date created</option>
-<option value="modified">Date modified</option>
+<option value="title" {% if sort_mode == "title" %}selected{% endif %}>Title</option>
+<option value="platform" {% if sort_mode == "platform" %}selected{% endif %}>Platform</option>
+<option value="created" {% if sort_mode == "created" %}selected{% endif %}>Date created</option>
+<option value="modified" {% if sort_mode == "modified" %}selected{% endif %}>Date modified</option>
 {% endblock %}
 
 {% block card_list %}

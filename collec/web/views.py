@@ -32,10 +32,10 @@ def book_list(request, **kwargs):
     if sort_mode is None:
         sort_mode = 'modified'
     if sort_mode != 'modified' and sort_mode != 'created':
-        sort_mode = 'bookdetails__' + sort_mode
+        sort_mode_arg = 'bookdetails__' + sort_mode
     else:
-        sort_mode = '-' + sort_mode
-    books = Item.objects.filter(user=user, type='BK').order_by(sort_mode)
+        sort_mode_arg = '-' + sort_mode
+    books = Item.objects.filter(user=user, type='BK').order_by(sort_mode_arg)
     if search_string:
         books = books.filter(Q(bookdetails__title__icontains=search_string) |
                              Q(bookdetails__author__icontains=search_string))
@@ -43,6 +43,7 @@ def book_list(request, **kwargs):
         'user': user,
         'books': books,
         'search_string': search_string,
+        'sort_mode': sort_mode,
     }
     return render(request, 'web/book_list.html', context)
 
@@ -55,16 +56,17 @@ def videogame_list(request, **kwargs):
     if sort_mode is None:
         sort_mode = 'modified'
     if sort_mode != 'modified' and sort_mode != 'created':
-        sort_mode = 'videogamedetails__' + sort_mode
+        sort_mode_arg = 'videogamedetails__' + sort_mode
     else:
-        sort_mode = '-' + sort_mode
-    videogames = Item.objects.filter(user=user, type='VG').order_by(sort_mode)
+        sort_mode_arg = '-' + sort_mode
+    videogames = Item.objects.filter(user=user, type='VG').order_by(sort_mode_arg)
     if search_string:
         videogames = videogames.filter(Q(videogamedetails__title__icontains=search_string))
     context = {
         'user': user,
         'videogames': videogames,
         'search_string': search_string,
+        'sort_mode': sort_mode,
     }
     return render(request, 'web/videogame_list.html', context)
 
@@ -77,15 +79,16 @@ def movie_list(request, **kwargs):
     if sort_mode is None:
         sort_mode = 'modified'
     if sort_mode != 'modified' and sort_mode != 'created':
-        sort_mode = 'moviedetails__' + sort_mode
+        sort_mode_arg = 'moviedetails__' + sort_mode
     else:
-        sort_mode = '-' + sort_mode
-    movies = Item.objects.filter(user=user, type='MV').order_by(sort_mode)
+        sort_mode_arg = '-' + sort_mode
+    movies = Item.objects.filter(user=user, type='MV').order_by(sort_mode_arg)
     if search_string:
         movies = movies.filter(Q(moviedetails__title__icontains=search_string))
     context = {
         'user': user,
         'movies': movies,
         'search_string': search_string,
+        'sort_mode': sort_mode,
     }
     return render(request, 'web/movie_list.html', context)
