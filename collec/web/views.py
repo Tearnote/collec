@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from collec.web.forms import BookForm
@@ -50,10 +51,26 @@ def book_list(request, **kwargs):
 
 
 def book_add(request, **kwargs):
-    context = {
-        'form': BookForm(),
-    }
-    return render(request, 'web/detail_base.html', context)
+    if request.method == "GET":
+        username = kwargs['username']
+        user = get_object_or_404(User, username=username)
+        context = {
+            'user': user,
+            'form': BookForm(),
+        }
+        return render(request, 'web/detail_base.html', context)
+
+    if request.method == "POST":
+        username = kwargs['username']
+        user = get_object_or_404(User, username=username)
+        form = BookForm(data=request.POST)
+        item = Item()
+        item.user = user
+        item.type = 'BK'
+        form.instance.item = item
+        if form.is_valid():
+            item.save()
+            form.save()
 
 
 def videogame_list(request, **kwargs):
