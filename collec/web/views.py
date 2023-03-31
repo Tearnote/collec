@@ -28,7 +28,14 @@ def book_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
     search_string = request.GET.get('q')
-    books = Item.objects.filter(user=user, type='BK')
+    sort_mode = request.GET.get('sort')
+    if sort_mode is None:
+        sort_mode = 'modified'
+    if sort_mode != 'modified' and sort_mode != 'created':
+        sort_mode = 'bookdetails__' + sort_mode
+    else:
+        sort_mode = '-' + sort_mode
+    books = Item.objects.filter(user=user, type='BK').order_by(sort_mode)
     if search_string:
         books = books.filter(Q(bookdetails__title__icontains=search_string) |
                              Q(bookdetails__author__icontains=search_string))
@@ -44,7 +51,14 @@ def videogame_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
     search_string = request.GET.get('q')
-    videogames = Item.objects.filter(user=user, type='VG')
+    sort_mode = request.GET.get('sort')
+    if sort_mode is None:
+        sort_mode = 'modified'
+    if sort_mode != 'modified' and sort_mode != 'created':
+        sort_mode = 'videogamedetails__' + sort_mode
+    else:
+        sort_mode = '-' + sort_mode
+    videogames = Item.objects.filter(user=user, type='VG').order_by(sort_mode)
     if search_string:
         videogames = videogames.filter(Q(videogamedetails__title__icontains=search_string))
     context = {
@@ -59,7 +73,14 @@ def movie_list(request, **kwargs):
     username = kwargs['username']
     user = get_object_or_404(User, username=username)
     search_string = request.GET.get('q')
-    movies = Item.objects.filter(user=user, type='MV')
+    sort_mode = request.GET.get('sort')
+    if sort_mode is None:
+        sort_mode = 'modified'
+    if sort_mode != 'modified' and sort_mode != 'created':
+        sort_mode = 'moviedetails__' + sort_mode
+    else:
+        sort_mode = '-' + sort_mode
+    movies = Item.objects.filter(user=user, type='MV').order_by(sort_mode)
     if search_string:
         movies = movies.filter(Q(moviedetails__title__icontains=search_string))
     context = {

@@ -8,7 +8,7 @@
             <button class="btn btn-secondary me-4" type="button">+</button>
             <label class="d-flex me-4">
                 Order by:
-                <select class="form-select" name="sort">
+                <select class="form-select" name="sort" onchange="submitForm(event)">
                     {% block sort_options %}
                         <option value="created">Date created</option>
                         <option value="modified">Date modified</option>
