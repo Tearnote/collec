@@ -53,20 +53,32 @@ def book_detail(request, **kwargs):
     if request.method == 'GET':
         username = kwargs['username']
         url_user = get_object_or_404(User, username=username)
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = BookForm(instance=item.bookdetails)
+        else:
+            form = BookForm()
         context = {
             'url_user': url_user,
-            'form': BookForm(),
+            'form': form,
+            'new': 'id' not in kwargs,
         }
+        if not context['new']:
+            context['id'] = kwargs['id']
         return render(request, 'web/detail_base.html', context)
 
     if request.method == 'POST':
         username = kwargs['username']
         url_user = get_object_or_404(User, username=username)
-        form = BookForm(data=request.POST)
-        item = Item()
-        item.user = url_user
-        item.type = 'BK'
-        form.instance.item = item
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = BookForm(instance=item.bookdetails, data=request.POST)
+        else:
+            item = Item()
+            item.user = url_user
+            item.type = 'BK'
+            form = BookForm(data=request.POST)
+            form.instance.item = item
         if form.is_valid():
             item.save()
             form.save()

@@ -27,3 +27,19 @@ const showAddModal = async function(e) {
         el.remove();
     })
 }
+
+const showModifyModal = async function(e) {
+    e.preventDefault();
+    const anchor = e.currentTarget;
+    const href = anchor.getAttribute("href");
+    const response = await fetch(href);
+    const html = await response.text();
+    const el = document.createElement("div");
+    el.innerHTML = html;
+    document.body.append(el);
+    const modal = new bootstrap.Modal(el.firstElementChild);
+    modal.show();
+    el.addEventListener("hidden.bs.modal", function() {
+        el.remove();
+    })
+}
