@@ -86,6 +86,18 @@ def book_detail(request, **kwargs):
         return redirect('book_list', username=username)
 
 
+def book_delete(request, **kwargs):
+    username = kwargs['username']
+    if request.method != 'POST':
+        return redirect('book_list', username=username)
+
+    url_user = get_object_or_404(User, username=username)
+    id = kwargs['id']
+    item = get_object_or_404(Item, id=id)
+    item.delete()
+    return redirect('book_list', username=username)
+
+
 def videogame_list(request, **kwargs):
     username = kwargs['username']
     url_user = get_object_or_404(User, username=username)

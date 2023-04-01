@@ -14,6 +14,9 @@
                 </form>
             </div>
             <div class="modal-footer">
+                {% if not new %}
+                    <button type="submit" form="detail-form" formaction="{% url 'book_delete' url_user id %}" class="btn btn-danger" onclick="itemDelete(event)">Delete</button>
+                {% endif %}
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-primary" form="detail-form">{% if new %}Add{% else %}Modify{% endif %}</button>
             </div>

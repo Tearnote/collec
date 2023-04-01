@@ -43,3 +43,8 @@ const showModifyModal = async function(e) {
         el.remove();
     })
 }
+
+const itemDelete = function(e) {
+    if (!confirm("Are you sure you want to delete the item? This cannot be undone."))
+        e.preventDefault();
+}
