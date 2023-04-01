@@ -14,7 +14,7 @@ const resetForm = function(e) {
 }
 
 const showAddModal = async function() {
-    const response = await fetch(window.location.origin + window.location.pathname + "add/");
+    const response = await fetch(window.location.origin + window.location.pathname + "detail/");
     const html = await response.text();
     const el = document.createElement("div");
     el.innerHTML = html;

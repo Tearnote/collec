@@ -1,8 +1,8 @@
 {% extends "web/list_base.html" %}
 {% load ratings %}
 
-{% block title %}Collec. {{user}}'s Books{% endblock %}
-{% block header_title %}{{user}}'s Books{% endblock %}
+{% block title %}Collec. {{url_user}}'s Books{% endblock %}
+{% block header_title %}{{url_user}}'s Books{% endblock %}
 
 {% block sort_options %}
 <option value="title" {% if sort_mode == "title" %}selected{% endif %}>Title</option>
