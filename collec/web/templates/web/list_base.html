@@ -5,7 +5,7 @@
 <main class="container">
     <div class="navbar">
         <form method="get" class="d-flex align-items-center">
-            <button class="btn btn-secondary me-4" type="button" onclick="showAddModal()">+</button>
+            <button class="btn btn-secondary me-4" type="button" data-href-template="{% url 'book_detail' url_user %}" onclick="showAddModal(event)">+</button>
             <label class="d-flex me-4">
                 Order by:
                 <select class="form-select" name="sort" onchange="submitForm(event)">

@@ -13,8 +13,10 @@ const resetForm = function(e) {
     form.submit();
 }
 
-const showAddModal = async function() {
-    const response = await fetch(window.location.origin + window.location.pathname + "detail/");
+const showAddModal = async function(e) {
+    const button = e.currentTarget;
+    const href = button.getAttribute("data-href-template");
+    const response = await fetch(href);
     const html = await response.text();
     const el = document.createElement("div");
     el.innerHTML = html;
