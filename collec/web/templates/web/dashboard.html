@@ -7,7 +7,7 @@
     <section>
         <div class="row">
             <a href="{% url 'book_list' url_user %}"><h3 class="col-auto">Books</h3></a>
-            <button role="button" class="col-auto btn btn-secondary">+</button>
+            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'book_detail' url_user %}" onclick="showAddModal(event)">+</button>
         </div>
         <ul>
             {% for book in books %}
@@ -24,7 +24,7 @@
     <section>
         <div class="row">
             <a href="{% url 'videogame_list' url_user %}"><h3 class="col-auto">Videogames</h3></a>
-            <button role="button" class="col-auto btn btn-secondary">+</button>
+            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'videogame_detail' url_user %}" onclick="showAddModal(event)">+</button>
         </div>
         <ul>
             {% for videogame in videogames %}
@@ -41,7 +41,7 @@
     <section>
         <div class="row">
             <a href="{% url 'movie_list' url_user %}"><h3 class="col-auto">Movies</h3></a>
-            <button role="button" class="col-auto btn btn-secondary">+</button>
+            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'movie_detail' url_user %}" onclick="showAddModal(event)">+</button>
         </div>
         <ul>
             {% for movie in movies %}
