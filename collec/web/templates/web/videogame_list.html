@@ -16,7 +16,7 @@
     {% for videogame in videogames %}
         <li class="card">
             <div class="card-body">
-                <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
+                <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
                 <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                 <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
             </div>

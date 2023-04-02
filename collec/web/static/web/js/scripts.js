@@ -28,7 +28,7 @@ const showAddModal = async function(e) {
     })
 }
 
-const showModifyModal = async function(e) {
+const showModal = async function(e) {
     e.preventDefault();
     const anchor = e.currentTarget;
     const href = anchor.getAttribute("href");

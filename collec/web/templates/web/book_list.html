@@ -16,7 +16,7 @@
     {% for book in books %}
         <li class="card">
             <div class="card-body">
-                <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
+                <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
                 <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                 <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
             </div>

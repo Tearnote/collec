@@ -15,7 +15,7 @@
     {% for movie in movies %}
         <li class="card">
             <div class="card-body">
-                <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
+                <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
                 <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
             </div>
         </li>
