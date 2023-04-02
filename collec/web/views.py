@@ -21,6 +21,7 @@ def dashboard(request, **kwargs):
         'books': books,
         'videogames': videogames,
         'movies': movies,
+        'own_user': url_user == request.user,
     }
     return render(request, 'web/dashboard.html', context)
 
@@ -45,6 +46,7 @@ def book_list(request, **kwargs):
         'books': books,
         'search_string': search_string,
         'sort_mode': sort_mode,
+        'own_user': url_user == request.user,
     }
     return render(request, 'web/book_list.html', context)
 
@@ -117,6 +119,7 @@ def videogame_list(request, **kwargs):
         'videogames': videogames,
         'search_string': search_string,
         'sort_mode': sort_mode,
+        'own_user': url_user == request.user,
     }
     return render(request, 'web/videogame_list.html', context)
 
@@ -189,6 +192,7 @@ def movie_list(request, **kwargs):
         'movies': movies,
         'search_string': search_string,
         'sort_mode': sort_mode,
+        'own_user': url_user == request.user,
     }
     return render(request, 'web/movie_list.html', context)
 

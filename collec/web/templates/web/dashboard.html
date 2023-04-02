@@ -7,13 +7,19 @@
     <section>
         <div class="row">
             <a href="{% url 'book_list' url_user %}"><h3 class="col-auto">Books</h3></a>
-            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'book_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% if own_user %}
+                <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'book_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% endif %}
         </div>
         <ul>
             {% for book in books %}
                 <li class="card">
                     <div class="card-body">
-                        <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
+                        {% if own_user %}
+                            <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
+                        {% else %}
+                            <h4 class="card-title">{{book.bookdetails.title}}</h4>
+                        {% endif %}
                         <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                         <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
                     </div>
@@ -24,13 +30,19 @@
     <section>
         <div class="row">
             <a href="{% url 'videogame_list' url_user %}"><h3 class="col-auto">Videogames</h3></a>
-            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'videogame_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% if own_user %}
+                <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'videogame_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% endif %}
         </div>
         <ul>
             {% for videogame in videogames %}
                 <li class="card">
                     <div class="card-body">
-                        <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
+                        {% if own_user %}
+                            <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
+                        {% else %}
+                            <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
+                        {% endif %}
                         <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                         <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
                     </div>
@@ -41,13 +53,19 @@
     <section>
         <div class="row">
             <a href="{% url 'movie_list' url_user %}"><h3 class="col-auto">Movies</h3></a>
-            <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'movie_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% if own_user %}
+                <button class="col-auto btn btn-secondary me-4" type="button" data-href-template="{% url 'movie_detail' url_user %}" onclick="showAddModal(event)">+</button>
+            {% endif %}
         </div>
         <ul>
             {% for movie in movies %}
                 <li class="card">
                     <div class="card-body">
-                        <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
+                        {% if own_user %}
+                            <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
+                        {% else %}
+                            <h4 class="card-title">{{movie.moviedetails.title}}</h4>
+                        {% endif %}
                         <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
                     </div>
                 </li>
