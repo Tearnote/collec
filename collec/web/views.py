@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -72,6 +73,8 @@ def book_detail(request, **kwargs):
     if request.method == 'POST':
         username = kwargs['username']
         url_user = get_object_or_404(User, username=username)
+        if request.user != url_user:
+            raise PermissionDenied()
         if 'id' in kwargs:
             item = get_object_or_404(Item, id=kwargs['id'])
             form = BookForm(instance=item.bookdetails, data=request.POST)
@@ -94,6 +97,9 @@ def book_delete(request, **kwargs):
         return redirect('book_list', username=username)
 
     url_user = get_object_or_404(User, username=username)
+    if request.user != url_user:
+        raise PermissionDenied()
+
     id = kwargs['id']
     item = get_object_or_404(Item, id=id)
     item.delete()
@@ -145,6 +151,8 @@ def videogame_detail(request, **kwargs):
     if request.method == 'POST':
         username = kwargs['username']
         url_user = get_object_or_404(User, username=username)
+        if request.user != url_user:
+            raise PermissionDenied()
         if 'id' in kwargs:
             item = get_object_or_404(Item, id=kwargs['id'])
             form = VideogameForm(instance=item.videogamedetails, data=request.POST)
@@ -167,6 +175,9 @@ def videogame_delete(request, **kwargs):
         return redirect('videogame_list', username=username)
 
     url_user = get_object_or_404(User, username=username)
+    if request.user != url_user:
+        raise PermissionDenied()
+
     id = kwargs['id']
     item = get_object_or_404(Item, id=id)
     item.delete()
@@ -218,6 +229,8 @@ def movie_detail(request, **kwargs):
     if request.method == 'POST':
         username = kwargs['username']
         url_user = get_object_or_404(User, username=username)
+        if request.user != url_user:
+            raise PermissionDenied()
         if 'id' in kwargs:
             item = get_object_or_404(Item, id=kwargs['id'])
             form = MovieForm(instance=item.moviedetails, data=request.POST)
@@ -240,6 +253,9 @@ def movie_delete(request, **kwargs):
         return redirect('movie_list', username=username)
 
     url_user = get_object_or_404(User, username=username)
+    if request.user != url_user:
+        raise PermissionDenied()
+
     id = kwargs['id']
     item = get_object_or_404(Item, id=id)
     item.delete()
