@@ -146,11 +146,3 @@ class MovieDetails(models.Model):
     def clean(self):
         if self.item.type != 'MV':
             raise ValidationError('Movie details added to a non-movie item')
-
-
-class Tag(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    value = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f'{self.item}: {self.value}'
