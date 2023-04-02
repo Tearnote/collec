@@ -2,6 +2,7 @@
 
 {% block title %}Collec. {{url_user}}'s Videogames{% endblock %}
 {% block header_title %}{{url_user}}'s Videogames{% endblock %}
+{% block detail_template %}{% url 'videogame_detail' url_user %}{% endblock %}
 
 {% block sort_options %}
 <option value="title" {% if sort_mode == "title" %}selected{% endif %}>Title</option>
@@ -15,7 +16,7 @@
     {% for videogame in videogames %}
         <li class="card">
             <div class="card-body">
-                <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
+                <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
                 <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                 <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
             </div>

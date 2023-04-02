@@ -1,0 +1,15 @@
+{% extends "web/detail_base.html" %}
+
+{% block item_name %}book{% endblock %}
+
+{% block form_action %}
+    {% if new %}
+        {% url 'book_detail' url_user %}
+    {% else %}
+        {% url 'book_detail_id' url_user id %}
+    {% endif %}
+{% endblock %}
+
+{% block delete_action %}
+    {% url 'book_delete' url_user id %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "web/detail_base.html" %}
+
+{% block item_name %}videogame{% endblock %}
+
+{% block form_action %}
+    {% if new %}
+        {% url 'videogame_detail' url_user %}
+    {% else %}
+        {% url 'videogame_detail_id' url_user id %}
+    {% endif %}
+{% endblock %}
+
+{% block delete_action %}
+    {% url 'videogame_delete' url_user id %}
+{% endblock %}

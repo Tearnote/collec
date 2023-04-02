@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
-from collec.web.forms import BookForm
+from collec.web.forms import BookForm, VideogameForm, MovieForm
 from collec.web.models import Item
 
 
@@ -65,7 +65,7 @@ def book_detail(request, **kwargs):
         }
         if not context['new']:
             context['id'] = kwargs['id']
-        return render(request, 'web/detail_base.html', context)
+        return render(request, 'web/book_detail.html', context)
 
     if request.method == 'POST':
         username = kwargs['username']
@@ -121,6 +121,55 @@ def videogame_list(request, **kwargs):
     return render(request, 'web/videogame_list.html', context)
 
 
+def videogame_detail(request, **kwargs):
+    if request.method == 'GET':
+        username = kwargs['username']
+        url_user = get_object_or_404(User, username=username)
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = VideogameForm(instance=item.videogamedetails)
+        else:
+            form = VideogameForm()
+        context = {
+            'url_user': url_user,
+            'form': form,
+            'new': 'id' not in kwargs,
+        }
+        if not context['new']:
+            context['id'] = kwargs['id']
+        return render(request, 'web/videogame_detail.html', context)
+
+    if request.method == 'POST':
+        username = kwargs['username']
+        url_user = get_object_or_404(User, username=username)
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = VideogameForm(instance=item.videogamedetails, data=request.POST)
+        else:
+            item = Item()
+            item.user = url_user
+            item.type = 'VG'
+            form = VideogameForm(data=request.POST)
+            form.instance.item = item
+        if form.is_valid():
+            item.save()
+            form.save()
+
+        return redirect('videogame_list', username=username)
+
+
+def videogame_delete(request, **kwargs):
+    username = kwargs['username']
+    if request.method != 'POST':
+        return redirect('videogame_list', username=username)
+
+    url_user = get_object_or_404(User, username=username)
+    id = kwargs['id']
+    item = get_object_or_404(Item, id=id)
+    item.delete()
+    return redirect('videogame_list', username=username)
+
+
 def movie_list(request, **kwargs):
     username = kwargs['username']
     url_user = get_object_or_404(User, username=username)
@@ -142,3 +191,52 @@ def movie_list(request, **kwargs):
         'sort_mode': sort_mode,
     }
     return render(request, 'web/movie_list.html', context)
+
+
+def movie_detail(request, **kwargs):
+    if request.method == 'GET':
+        username = kwargs['username']
+        url_user = get_object_or_404(User, username=username)
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = MovieForm(instance=item.moviedetails)
+        else:
+            form = MovieForm()
+        context = {
+            'url_user': url_user,
+            'form': form,
+            'new': 'id' not in kwargs,
+        }
+        if not context['new']:
+            context['id'] = kwargs['id']
+        return render(request, 'web/movie_detail.html', context)
+
+    if request.method == 'POST':
+        username = kwargs['username']
+        url_user = get_object_or_404(User, username=username)
+        if 'id' in kwargs:
+            item = get_object_or_404(Item, id=kwargs['id'])
+            form = MovieForm(instance=item.moviedetails, data=request.POST)
+        else:
+            item = Item()
+            item.user = url_user
+            item.type = 'MV'
+            form = MovieForm(data=request.POST)
+            form.instance.item = item
+        if form.is_valid():
+            item.save()
+            form.save()
+
+        return redirect('movie_list', username=username)
+
+
+def movie_delete(request, **kwargs):
+    username = kwargs['username']
+    if request.method != 'POST':
+        return redirect('movie_list', username=username)
+
+    url_user = get_object_or_404(User, username=username)
+    id = kwargs['id']
+    item = get_object_or_404(Item, id=id)
+    item.delete()
+    return redirect('movie_list', username=username)

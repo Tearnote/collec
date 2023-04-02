@@ -2,6 +2,7 @@
 
 {% block title %}Collec. {{url_user}}'s Books{% endblock %}
 {% block header_title %}{{url_user}}'s Books{% endblock %}
+{% block detail_template %}{% url 'book_detail' url_user %}{% endblock %}
 
 {% block sort_options %}
 <option value="title" {% if sort_mode == "title" %}selected{% endif %}>Title</option>

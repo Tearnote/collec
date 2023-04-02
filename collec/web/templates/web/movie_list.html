@@ -2,6 +2,7 @@
 
 {% block title %}Collec. {{url_user}}'s Movies{% endblock %}
 {% block header_title %}{{url_user}}'s Movies{% endblock %}
+{% block detail_template %}{% url 'movie_detail' url_user %}{% endblock %}
 
 {% block sort_options %}
 <option value="title" {% if sort_mode == "title" %}selected{% endif %}>Title</option>
@@ -14,7 +15,7 @@
     {% for movie in movies %}
         <li class="card">
             <div class="card-body">
-                <h4 class="card-title">{{movie.moviedetails.title}}</h4>
+                <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
                 <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
             </div>
         </li>

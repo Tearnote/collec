@@ -1,0 +1,15 @@
+{% extends "web/detail_base.html" %}
+
+{% block item_name %}movie{% endblock %}
+
+{% block form_action %}
+    {% if new %}
+        {% url 'movie_detail' url_user %}
+    {% else %}
+        {% url 'movie_detail_id' url_user id %}
+    {% endif %}
+{% endblock %}
+
+{% block delete_action %}
+    {% url 'movie_delete' url_user id %}
+{% endblock %}
