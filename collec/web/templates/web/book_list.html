@@ -1,5 +1,4 @@
 {% extends "web/list_base.html" %}
-{% load ratings %}
 
 {% block title %}Collec. {{url_user}}'s Books{% endblock %}
 {% block header_title %}{{url_user}}'s Books{% endblock %}
@@ -19,7 +18,6 @@
                 <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
                 <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                 <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
-                {% ratings book readonly template_name="web/star_rating.html" %}
             </div>
         </li>
     {% endfor %}

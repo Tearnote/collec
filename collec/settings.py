@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
-    'star_ratings',
     'collec.web',
 ]
 
@@ -137,5 +136,3 @@ INTERNAL_IPS = ['127.0.0.1', ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-
-STAR_RATINGS_RERATE_SAME_DELETE = True

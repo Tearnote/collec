@@ -1,5 +1,4 @@
 {% extends "web/app_base.html" %}
-{% load ratings %}
 
 {% block content %}
 
@@ -17,7 +16,6 @@
                         <h4 class="card-title">{{book.bookdetails.title}}</h4>
                         <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                         <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
-                        {% ratings book readonly template_name="web/star_rating.html" %}
                     </div>
                 </li>
             {% endfor %}
@@ -35,7 +33,6 @@
                         <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
                         <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                         <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
-                        {% ratings videogame readonly template_name="web/star_rating.html" %}
                     </div>
                 </li>
             {% endfor %}
@@ -52,7 +49,6 @@
                     <div class="card-body">
                         <h4 class="card-title">{{movie.moviedetails.title}}</h4>
                         <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
-                        {% ratings movie readonly template_name="web/star_rating.html" %}
                     </div>
                 </li>
             {% endfor %}
