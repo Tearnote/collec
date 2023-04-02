@@ -37,8 +37,9 @@
         <div class="col">
             <a href="/"><h1>{% block header_title %}Collec{% endblock %}</h1></a>
         </div>
-        <div class="col-auto">
+        <div class="col-auto d-flex flex-row align-items-center">
             {% if user.is_authenticated %}
+                <p class="p-2">Signed in as {{ user }}</p>
                 <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-primary">Sign out</button>
