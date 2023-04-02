@@ -13,9 +13,9 @@ def index(request):
 def dashboard(request, **kwargs):
     username = kwargs['username']
     url_user = get_object_or_404(User, username=username)
-    books = Item.objects.filter(user=url_user, type='BK')
-    videogames = Item.objects.filter(user=url_user, type='VG')
-    movies = Item.objects.filter(user=url_user, type='MV')
+    books = Item.objects.filter(user=url_user, type='BK').order_by('-modified')[:5]
+    videogames = Item.objects.filter(user=url_user, type='VG').order_by('-modified')[:5]
+    movies = Item.objects.filter(user=url_user, type='MV').order_by('-modified')[:5]
     context = {
         'url_user': url_user,
         'books': books,
