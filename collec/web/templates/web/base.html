@@ -42,7 +42,11 @@
             <a href="/"><h1>{% block header_title %}Collec{% endblock %}</h1></a>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-outline-primary">Sign in</button>
+            {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" role="button" class="btn btn-outline-primary">Sign out</a>
+            {% else %}
+                <a href="{% url 'account_login' %}" class="btn btn-outline-primary" onclick="showLoginModal(event)">Sign in</a>
+            {% endif %}
         </div>
     </div>
     {% block header_nav %}{% endblock %}
