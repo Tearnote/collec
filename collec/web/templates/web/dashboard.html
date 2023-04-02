@@ -13,7 +13,7 @@
             {% for book in books %}
                 <li class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{book.bookdetails.title}}</h4>
+                        <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>
                         <h5 class="card-subtitle">{{book.bookdetails.author}}</h5>
                         <p class="card-text">{{book.bookdetails.get_owned_display}}</p>
                     </div>
@@ -30,7 +30,7 @@
             {% for videogame in videogames %}
                 <li class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{videogame.videogamedetails.title}}</h4>
+                        <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>
                         <h5 class="card-subtitle">{{videogame.videogamedetails.get_platform_display}}</h5>
                         <p class="card-text">{{videogame.videogamedetails.get_owned_display}}</p>
                     </div>
@@ -47,7 +47,7 @@
             {% for movie in movies %}
                 <li class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{movie.moviedetails.title}}</h4>
+                        <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModifyModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>
                         <p class="card-text">{{movie.moviedetails.get_owned_display}}</p>
                     </div>
                 </li>
