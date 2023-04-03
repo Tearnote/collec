@@ -32,20 +32,18 @@
 
 {% block header %}
 
-<header class="container-fluid">
-    <div class="row align-items-center">
-        <div class="col">
-            <a href="/"><h1>{% block header_title %}Collec{% endblock %}</h1></a>
-        </div>
-        <div class="col-auto d-flex flex-row align-items-center">
+<header class="container-fluid shadow">
+    <div class="container d-flex flex-row justify-content-between align-items-center">
+        <a href="/"><h1 class="m-0">{% block header_title %}Collec{% endblock %}</h1></a>
+        <div class="d-flex flex-row align-items-center">
             {% if user.is_authenticated %}
-                <p class="p-2">Signed in as {{ user }}</p>
-                <form method="post" action="{% url 'account_logout' %}">
+                <p class="d-inline-block m-0 me-2">Signed in as {{ user }}</p>
+                <form class="d-inline-block" method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-primary">Sign out</button>
+                    <button type="submit" class="btn btn-outline-light">Sign out</button>
                 </form>
             {% else %}
-                <a href="{% url 'account_login' %}" class="btn btn-outline-primary" onclick="showModal(event)">Sign in</a>
+                <a href="{% url 'account_login' %}" class="btn btn-outline-light" onclick="showModal(event)">Sign in</a>
             {% endif %}
         </div>
     </div>

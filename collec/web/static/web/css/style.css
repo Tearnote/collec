@@ -1,3 +1,42 @@
+/* region Shared page style */
+
+body {
+    --color-main: #5C7AA9;
+    --color-light: #F7F9F9;
+    --color-light-accent: #8F9DA0;
+    --color-dark: #162433;
+    --color-dark-accent: #777E9E;
+}
+
+header {
+    color: var(--color-light);
+    background: var(--color-main);
+}
+
+header > div {
+    min-height: 4rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1 {
+    color: var(--color-light);
+}
+
+header .btn {
+    border-color: var(--color-light);
+    color: var(--color-light);
+}
+
+header .btn:hover {
+    color: var(--color-main);
+    background: var(--color-light);
+}
+
+/* endregion */
+
 /* region Landing page */
 
 #eyecatch {
