@@ -13,7 +13,7 @@
 {% block card_list %}
 
     {% for movie in movies %}
-        <li class="card">
+        <li class="card shadow m-1">
             <div class="card-body">
                 {% if own_user %}
                     <a href="{% url 'movie_detail_id' url_user movie.id %}" onclick="showModal(event)"><h4 class="card-title">{{movie.moviedetails.title}}</h4></a>

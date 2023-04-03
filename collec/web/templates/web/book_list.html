@@ -14,7 +14,7 @@
 {% block card_list %}
 
     {% for book in books %}
-        <li class="card">
+        <li class="card shadow m-1">
             <div class="card-body">
                 {% if own_user %}
                     <a href="{% url 'book_detail_id' url_user book.id %}" onclick="showModal(event)"><h4 class="card-title">{{book.bookdetails.title}}</h4></a>

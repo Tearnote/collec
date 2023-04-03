@@ -14,7 +14,7 @@
 {% block card_list %}
 
     {% for videogame in videogames %}
-        <li class="card">
+        <li class="card shadow m-1">
             <div class="card-body">
                 {% if own_user %}
                     <a href="{% url 'videogame_detail_id' url_user videogame.id %}" onclick="showModal(event)"><h4 class="card-title">{{videogame.videogamedetails.title}}</h4></a>

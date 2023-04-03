@@ -2,28 +2,26 @@
 
 {% block content %}
 
-<main class="container">
+<main class="item-list container">
     <div class="navbar">
         <form method="get" class="d-flex align-items-center">
             {% if own_user %}
-                <button class="btn btn-secondary me-4" type="button" data-href-template="{% block detail_template %}{% endblock %}" onclick="showAddModal(event)">+</button>
+                <button class="btn btn-primary me-4" type="button" data-href-template="{% block detail_template %}{% endblock %}" onclick="showAddModal(event)">+</button>
             {% endif %}
-            <label class="d-flex me-4">
-                Order by:
-                <select class="form-select" name="sort" onchange="submitForm(event)">
-                    {% block sort_options %}
-                        <option value="created">Date created</option>
-                        <option value="modified">Date modified</option>
-                    {% endblock %}
-                </select>
-            </label>
+            <label class="form-label" for="sort">Order by:</label>
+            <select class="form-select me-2" id="sort" name="sort" onchange="submitForm(event)">
+                {% block sort_options %}
+                    <option value="created">Date created</option>
+                    <option value="modified">Date modified</option>
+                {% endblock %}
+            </select>
             <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="{{search_string|default:""}}">
             <input class="btn btn-outline-success me-2" type="submit" value="Search">
             <input class="btn btn-outline-danger" type="reset" value="Reset" onclick="resetForm(event)">
         </form>
     </div>
 
-    <ol>
+    <ol class="d-flex flex-row flex-wrap">
         {% block card_list %}{% endblock %}
     </ol>
 </main>

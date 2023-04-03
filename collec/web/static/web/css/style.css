@@ -133,7 +133,8 @@ body > header .btn:hover {
 
 /* section Dashboard */
 
-.dashboard a {
+.dashboard a,
+.item-list a {
     text-decoration: none;
 }
 
@@ -146,7 +147,8 @@ body > header .btn:hover {
     padding: 0.2rem 0.5rem;
 }
 
-.dashboard ol {
+.dashboard ol,
+.item-list ol {
     padding: 0;
 }
 
@@ -157,18 +159,36 @@ body > header .btn:hover {
     color: var(--color-light);
 }
 
-.dashboard .card h4 {
+.dashboard .card h4,
+.item-list .card h4 {
     color: var(--color-light);
     font-size: larger;
 }
 
-.dashboard .card h5 {
+.dashboard .card h5,
+.item-list .card h5 {
     color: var(--color-light-accent);
     font-size: medium;
 }
 
-.dashboard .card p {
+.dashboard .card p,
+.item-list .card p {
     color: var(--color-light-accent);
+}
+
+/* endsection */
+
+/* section Item list */
+
+.navbar .form-label {
+    margin: 0 0.25rem;
+    min-width: fit-content;
+}
+
+.item-list .card {
+    background: var(--color-dark);
+    color: var(--color-light);
+    width: 32rem;
 }
 
 /* endsection */
