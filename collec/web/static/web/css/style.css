@@ -20,29 +20,29 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--color-main);
 }
 
-header {
+body > header {
     color: var(--color-light);
     background: var(--color-main);
 }
 
-header > div {
+body > header > div {
     min-height: 4rem;
 }
 
-header a {
+body > header a {
     text-decoration: none;
 }
 
-header h1 {
+body > header h1 {
     color: var(--color-light);
 }
 
-header .btn {
+body > header .btn {
     border-color: var(--color-light);
     color: var(--color-light);
 }
 
-header .btn:hover {
+body > header .btn:hover {
     color: var(--color-main);
     background: var(--color-light);
 }
@@ -130,3 +130,45 @@ header .btn:hover {
 }
 
 /* endregion */
+
+/* section Dashboard */
+
+.dashboard a {
+    text-decoration: none;
+}
+
+.dashboard h3 {
+    margin: 0;
+    color: var(--color-main);
+}
+
+.dashboard .btn {
+    padding: 0.2rem 0.5rem;
+}
+
+.dashboard ul {
+    padding: 0;
+}
+
+.dashboard .card {
+    width: 15rem;
+    min-height: 10rem;
+    background: var(--color-dark);
+    color: var(--color-light);
+}
+
+.dashboard .card h4 {
+    color: var(--color-light);
+    font-size: larger;
+}
+
+.dashboard .card h5 {
+    color: var(--color-light-accent);
+    font-size: medium;
+}
+
+.dashboard .card p {
+    color: var(--color-light-accent);
+}
+
+/* endsection */
