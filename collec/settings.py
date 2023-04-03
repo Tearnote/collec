@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["COLLEC_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if 'COLEC_DEBUG' in os.environ else False
+DEBUG = True if 'COLLEC_DEBUG' in os.environ else False
 
 ALLOWED_HOSTS = []
-if 'COLEC_HOST' in os.environ:
-    ALLOWED_HOSTS.append(os.environ['COLEC_HOST'])
+if 'COLLEC_HOST' in os.environ:
+    ALLOWED_HOSTS.append(os.environ['COLLEC_HOST'])
 if not DEBUG and not ALLOWED_HOSTS:
-    raise RuntimeError('COLEC_HOST must be set if COLEC_DEBUG is not present')
+    raise RuntimeError('COLLEC_HOST must be set if COLLEC_DEBUG is not present')
 
 
 # Application definition
