@@ -11,6 +11,36 @@ The documentation is split across two files:
 
 The project is managed via a [GitHub project](https://github.com/users/Tearnote/projects/1/views/1). Issues are created in a "User story" format, and assigned size/complexity and importance. Each issue contains a title, user story sentence, and a list of technical expectations.
 
+## Highlights
+
+![Screenshot of the landing page](doc/highlights/landing.png)
+
+The landing page is simple and to the point, cleanly explaining the purpose of the app.
+
+![Screenshot of the sign-up modal](doc/highlights/signup.png)
+
+The sign-in and sign-up screens are modals, with their content loaded from the server via AJAX.
+
+![Screenshot of the dashboard page](doc/highlights/dashboard.png)
+
+After signing in, the user can open their Dashboard which shows 5 most recently modified items from each collection. Item creation and editing is available from here as a shortcut.
+
+![Screenshot of the item list](doc/highlights/item_list.png)
+
+Each collection can be viewed in detail, with sorting and search functionality.
+
+![Screenshot of the item editor modal](doc/highlights/item_editor.png)
+
+Items can be created, modified and deleted using the editor modal, loaded from the server like the sign-in/up ones.
+
+![Screenshot of the dashboard page in read-only mode](doc/highlights/read_only.png)
+
+Opening a user's page without signing in as them enters read-only mode, allowing anyone to browse your collection.
+
+![Screenshot of the dashboard page on a mobile display](doc/highlights/responsive.png)
+
+Every page is trivially responsive with wrapping UI elements and grids.
+
 ## Technologies used
 
 -   Python 3: Used for the backend portion of the app
