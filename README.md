@@ -45,6 +45,7 @@ Every page is trivially responsive with wrapping UI elements and grids.
 
 -   Python 3: Used for the backend portion of the app
 -   HTML5+CSS3: Design of the frontend
+-   Javascript (ES6): Interactive functionality and AJAX calls
 
 ## Dependencies
 
