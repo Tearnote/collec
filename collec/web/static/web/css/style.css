@@ -180,6 +180,14 @@ body > header .btn:hover {
 
 /* section Item list */
 
+#sort, .navbar .form-control {
+    max-width: 12rem;
+}
+
+.navbar form {
+    width: 100%;
+}
+
 .navbar .form-label {
     margin: 0 0.25rem;
     min-width: fit-content;

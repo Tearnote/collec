@@ -4,7 +4,7 @@
 
 <main class="item-list container">
     <div class="navbar">
-        <form method="get" class="d-flex align-items-center">
+        <form method="get" class="d-flex flex-wrap align-items-center">
             {% if own_user %}
                 <button class="btn btn-primary me-4" type="button" data-href-template="{% block detail_template %}{% endblock %}" onclick="showAddModal(event)">+</button>
             {% endif %}
