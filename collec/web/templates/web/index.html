@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <main class="container-fluid">
+    <main>
         <section id="eyecatch" class="container text-center d-flex flex-column align-items-center justify-content-center">
             <h2>Track your <span id="track">videogames.</span></h2>
             {% if user.is_authenticated %}
@@ -13,39 +13,41 @@
                 <a href="{% url 'account_signup' %}" role="button" class="btn btn-primary" onclick="showModal(event)">Sign up</a>
             {% endif %}
         </section>
-        <section class="container">
-            <div class="row">
-                <article class="card col-md mx-md-2 mb-4">
-                    <div class="card-body">
-                        <h3 class="card-title">All in one place.</h3>
-                        <p class="card-text">
-                            With <em>Collec</em> you can track anything you own. At the
-                            moment collections of books, videogames and movies are
-                            supported. More are on the way!
-                        </p>
-                    </div>
-                </article>
-                <article class="card col-md mx-md-2 mb-4">
-                    <div class="card-body">
-                        <h3 class="card-title">Fields you care about.</h3>
-                        <p class="card-text">
-                            No more cluttered interfaces. You can fully customize your
-                            profile to only feature the parts you like. Not into rating
-                            your collection items? No problem!
-                        </p>
-                    </div>
-                </article>
-                <article class="card col-md mx-md-2 mb-4">
-                    <div class="card-body">
-                        <h3 class="card-title">Own your data.</h3>
-                        <p class="card-text">
-                            <em>Collec</em> is opensource, and can be hosted by anyone.
-                            Your collections can be exported to a JSON format, for later
-                            import in a different instance, or for use by any external
-                            utilities.
-                        </p>
-                    </div>
-                </article>
+        <section id="cards" class="container-fluid pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <article class="card shadow col-md me-md-4 mb-4 mb-md-0">
+                        <div class="card-body">
+                            <h3 class="card-title">All in one place.</h3>
+                            <p class="card-text">
+                                With <em>Collec</em> you can track anything you own. At the
+                                moment collections of books, videogames and movies are
+                                supported. More are on the way!
+                            </p>
+                        </div>
+                    </article>
+                    <article class="card shadow col-md me-md-4 mb-4 mb-md-0">
+                        <div class="card-body">
+                            <h3 class="card-title">Fields you care about.</h3>
+                            <p class="card-text">
+                                No more cluttered interfaces. You can fully customize your
+                                profile to only feature the parts you like. Not into rating
+                                your collection items? No problem!
+                            </p>
+                        </div>
+                    </article>
+                    <article class="card shadow col-md">
+                        <div class="card-body">
+                            <h3 class="card-title">Own your data.</h3>
+                            <p class="card-text">
+                                <em>Collec</em> is opensource, and can be hosted by anyone.
+                                Your collections can be exported to a JSON format, for later
+                                import in a different instance, or for use by any external
+                                utilities.
+                            </p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>

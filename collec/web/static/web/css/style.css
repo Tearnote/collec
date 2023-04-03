@@ -8,6 +8,7 @@ body {
     --color-dark-accent: #777E9E;
 
     font-family: 'Nunito Sans', sans-serif;
+    background: var(--color-light);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,7 +47,13 @@ header .btn:hover {
 /* region Landing page */
 
 #eyecatch {
-    min-height: 75vh;
+    min-height: 32rem;
+    padding-top: 4rem;
+}
+
+#eyecatch .btn {
+    background: var(--color-main);
+    border-color: var(--color-main);
 }
 
 #track {
@@ -67,6 +74,14 @@ header .btn:hover {
     bottom: 2.4em;
     left: 0;
     content: "books.";
+}
+
+#cards {
+    background: var(--color-dark);
+}
+
+.card {
+    border-radius: 0.5rem;
 }
 
 /* endregion */
