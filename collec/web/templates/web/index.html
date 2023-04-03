@@ -1,11 +1,14 @@
 {% extends "web/base.html" %}
+{% load static %}
+
 {% block title %}Collec. Track your stuff!{% endblock %}
 {% block header_title %}Collec{% endblock %}
 
 {% block content %}
 
     <main>
-        <section id="eyecatch" class="container text-center d-flex flex-column align-items-center justify-content-center">
+        <section id="eyecatch" class="container-fluid text-center d-flex flex-column align-items-center justify-content-center">
+            <div class="background" style='--bg: url("{% static 'img/eyecatch.webp' %}")'></div>
             <h2>Track your <span id="track">videogames.</span></h2>
             {% if user.is_authenticated %}
                 <a href="{% url 'dashboard' user %}" role="button" class="btn btn-primary">Open Dashboard</a>
@@ -13,7 +16,7 @@
                 <a href="{% url 'account_signup' %}" role="button" class="btn btn-primary" onclick="showModal(event)">Sign up</a>
             {% endif %}
         </section>
-        <section id="cards" class="container-fluid pt-5 pb-5">
+        <section id="cards" class="container-fluid shadow pt-5 pb-5">
             <div class="container">
                 <div class="row">
                     <article class="card shadow col-md me-md-4 mb-4 mb-md-0">
