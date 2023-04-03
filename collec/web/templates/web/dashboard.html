@@ -11,7 +11,7 @@
                 <button class="btn btn-primary" type="button" data-href-template="{% url 'book_detail' url_user %}" onclick="showAddModal(event)">+</button>
             {% endif %}
         </header>
-        <ul class="d-flex flex-row flex-wrap">
+        <ol class="d-flex flex-row flex-wrap">
             {% for book in books %}
                 <li class="card shadow m-1">
                     <div class="card-body d-flex flex-column">
@@ -25,7 +25,7 @@
                     </div>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     </section>
     <section class="mt-4">
         <header class="d-flex flex-row align-items-center">
@@ -34,7 +34,7 @@
                 <button class="btn btn-primary" type="button" data-href-template="{% url 'videogame_detail' url_user %}" onclick="showAddModal(event)">+</button>
             {% endif %}
         </header>
-        <ul class="d-flex flex-row flex-wrap">
+        <ol class="d-flex flex-row flex-wrap">
             {% for videogame in videogames %}
                 <li class="card shadow m-1">
                     <div class="card-body d-flex flex-column">
@@ -48,7 +48,7 @@
                     </div>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     </section>
     <section class="mt-4">
         <header class="d-flex flex-row align-items-center">
@@ -57,7 +57,7 @@
                 <button class="btn btn-primary" type="button" data-href-template="{% url 'movie_detail' url_user %}" onclick="showAddModal(event)">+</button>
             {% endif %}
         </header>
-        <ul class="d-flex flex-row flex-wrap">
+        <ol class="d-flex flex-row flex-wrap">
             {% for movie in movies %}
                 <li class="card shadow m-1">
                     <div class="card-body d-flex flex-column">
@@ -70,7 +70,7 @@
                     </div>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     </section>
 </main>
 
