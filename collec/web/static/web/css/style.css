@@ -47,6 +47,24 @@ header .btn:hover {
     background: var(--color-light);
 }
 
+.main-nav {
+    background: var(--color-dark-accent);
+}
+
+.nav-link {
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+    color: var(--color-light);
+}
+
+.nav-link:not(:first-child) {
+   border-left: 2px solid var(--color-light);
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #c0c2c2;
+}
+
 /* endregion */
 
 /* region Landing page */

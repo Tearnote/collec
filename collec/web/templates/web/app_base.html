@@ -5,11 +5,13 @@
 
 {% block header_nav %}
 
-<nav class="nav">
-    <a class="nav-link" href="{% url 'dashboard' url_user %}">Dashboard</a>
-    <a class="nav-link" href="{% url 'book_list' url_user %}">Books</a>
-    <a class="nav-link" href="{% url 'videogame_list' url_user %}">Videogames</a>
-    <a class="nav-link" href="{% url 'movie_list' url_user %}">Movies</a>
-</nav>
+<div class="main-nav container-fluid shadow">
+    <nav class="nav container">
+        <a class="nav-link" href="{% url 'dashboard' url_user %}">Dashboard</a>
+        <a class="nav-link" href="{% url 'book_list' url_user %}">Books</a>
+        <a class="nav-link" href="{% url 'videogame_list' url_user %}">Videogames</a>
+        <a class="nav-link" href="{% url 'movie_list' url_user %}">Movies</a>
+    </nav>
+</div>
 
 {% endblock %}
