@@ -22,3 +22,7 @@ All dependencies are included, or installed via requirements.txt.
 
 -   [Django 4.1](https://www.djangoproject.com): backend framework used to serve the app to the browser and as a RESTful interface to manipulate the models
 -   [Pico.css](https://picocss.com): CSS framework to improve base styles
+
+## Credits
+
+[Landing page photo](https://www.pexels.com/photo/books-768125/) by [Emily](https://www.pexels.com/@emily-252615/)
