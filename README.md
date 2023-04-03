@@ -21,7 +21,9 @@ The project is managed via a [GitHub project](https://github.com/users/Tearnote/
 All dependencies are included, or installed via requirements.txt.
 
 -   [Django 4.1](https://www.djangoproject.com): backend framework used to serve the app to the browser and as a RESTful interface to manipulate the models
--   [Pico.css](https://picocss.com): CSS framework to improve base styles
+-   [Bootstrap 5](https://getbootstrap.com): CSS framework for grid layout and improved based styles
+-   [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms): Django library that improves form rendering
+-   [django-allauth](https://www.intenct.nl/projects/django-allauth/): Django library that expands on the built-in user authentication
 
 ## Credits
 
