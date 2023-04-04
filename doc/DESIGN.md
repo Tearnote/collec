@@ -128,3 +128,9 @@ Editable version of the diagram in the [draw.io](https://github.com/jgraph/drawi
 As the project is a utility rather than a product, it is intentionally straightforward to look at, with neutral colors and layouts that don't detract from the content. There are no transitions, and all interactive elements are buttons or highlighted links.
 
 The fonts chosen are [Montserrat](https://fonts.google.com/specimen/Montserrat) for headings and [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans#styles) for type. Both of these fonts feature wider characters than average, helping to make better use of horizontal space and keeping text clear and readable.
+
+## Scope post-mortem
+
+The project ended up being tightly limited by the submission deadline. As the [GitHub project](https://github.com/users/Tearnote/projects/1/views/1) shows, only the minimum set of functionality was able to be implemented. The Agile principles helped prioritize what's important, and the end result is barebones but usable for its intended usecase, with further improvements well-documented and possible to make in the future.
+
+In particular, user settings and item tags are missing from the MVP. If developed further, these features would be added first as the highest-priority additions.
