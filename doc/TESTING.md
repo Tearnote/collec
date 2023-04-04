@@ -1,1 +1,3 @@
 # Collec - Testing notes
+
+## Validation
