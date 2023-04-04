@@ -8,10 +8,11 @@ A live version is deployed and available [here](https://collec.tear.moe).
 
 ## Important notes
 
-The documentation is split across two files:
+The documentation is split across three files:
 
 -   [README.md](README.md) (this file): Overview of the app. Read this to get an idea of the premise of the app, technologies used and project conventions.
--   [DESIGN.md](doc/DESIGN.md): UX design notes crafting during early stages of development. The design process is described entirely, from the concept and market research, through information structuring to visual design principles and color palettes.
+-   [DESIGN.md](doc/DESIGN.md): UX design notes crafting during early stages of development. The design process is described entirely, from the concept and market research, through information structuring to visual design principles and color palettes,
+-   [TESTING.md](doc/TESTING.md): The project was validated using automated tools, as well as tested with a manual testing procedure. These are documented in this file.
 
 The project is managed via a [GitHub project](https://github.com/users/Tearnote/projects/1/views/1). Issues are created in a "User story" format, and assigned size/complexity and importance. Each issue contains a title, user story sentence, and a list of technical expectations.
 
