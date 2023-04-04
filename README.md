@@ -141,6 +141,8 @@ A few issues were not able to be fixed by submission date, they are detailed bel
     This is caused by the default Django-allauth views returning HTTP 200 on sign-in/up failure, so it cannot be caught by the Javascript making the AJAX request from the modal to update only the modal's HTML instead of the whole document. This is fixable by customizing the view, so that failures return an HTTP error code. I was not able to resolve this by submission date.
 -   **Missing interactivity hints**  
     When items are added or modified, a good design practice is to display pop-ups to the user confirming the change. This was not implemented in time for submission. Thankfully, the item lists display the most recent items by default, so the user's change is still visible to them at the top of the page.
+-   **No pagination**  
+    All item views currently show all items, which might be slow with a great deal of items on the account. To support larger collections, pagination or infinite scroll should be introduced.
 
 ## Credits
 
