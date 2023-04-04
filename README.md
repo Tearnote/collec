@@ -133,6 +133,14 @@ Prerequisites:
 
 ## Bugs
 
+A few issues were not able to be fixed by submission date, they are detailed below.
+
+-   **Bad handling of invalid sign-in and sign-up details**  
+    If wrong details are provided into the sign-in/up modals, the user will be redirected to a style-less page where the error is shown to them and they can try again. Although the page looks incomplete, the form is still functional.  
+    This is caused by the default Django-allauth views returning HTTP 200 on sign-in/up failure, so it cannot be caught by the Javascript making the AJAX request from the modal to update only the modal's HTML instead of the whole document. This is fixable by customizing the view, so that failures return an HTTP error code. I was not able to resolve this by submission date.
+-   **Missing interactivity hints**  
+    When items are added or modified, a good design practice is to display pop-ups to the user confirming the change. This was not implemented in time for submission. Thankfully, the item lists display the most recent items by default, so the user's change is still visible to them at the top of the page.
+
 ## Credits
 
 [Landing page photo](https://www.pexels.com/photo/books-768125/) by [Emily](https://www.pexels.com/@emily-252615/)
