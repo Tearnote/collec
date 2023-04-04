@@ -4,6 +4,8 @@
 
 *Collec* is a webapp for tracking several types of collections. It was originally made for [Code Institute](https://codeinstitute.net/)'s 4th submission project.
 
+A live version is deployed and available [here](https://collec.tear.moe).
+
 ## Important notes
 
 The documentation is split across two files:
