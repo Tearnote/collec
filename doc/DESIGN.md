@@ -122,3 +122,9 @@ The projected table layouts and their relationships are sketched below:
 ![Diagram of database tables, fields and relationships](database.png)
 
 Editable version of the diagram in the [draw.io](https://github.com/jgraph/drawio) format available [here](database.drawio).
+
+## Visual design
+
+As the project is a utility rather than a product, it is intentionally straightforward to look at, with neutral colors and layouts that don't detract from the content. There are no transitions, and all interactive elements are buttons or highlighted links.
+
+The fonts chosen are [Montserrat](https://fonts.google.com/specimen/Montserrat) for headings and [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans#styles) for type. Both of these fonts feature wider characters than average, helping to make better use of horizontal space and keeping text clear and readable.
