@@ -23,12 +23,12 @@
 
     <!-- Vendor JS -->
     {% if debug %}
-        <script type="text/javascript" src="{% static 'js/bootstrap.bundle.js' %}" defer></script>
+        <script src="{% static 'js/bootstrap.bundle.js' %}" defer></script>
     {% else %}
-        <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
     {% endif %}
     <!-- Custom JS -->
-    <script type="text/javascript" src="{% static 'web/js/scripts.js' %}" defer></script>
+    <script src="{% static 'web/js/scripts.js' %}" defer></script>
 </head>
 
 <body>
