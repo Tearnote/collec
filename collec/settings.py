@@ -96,6 +96,17 @@ DATABASES = {
     }
 }
 
+# Example configuration for Postgres:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'collec',
+#         'USER': 'collec',
+#         'PASSWORD': os.environ['COLLEC_POSTGRES_PASSWORD'],
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

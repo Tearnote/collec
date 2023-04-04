@@ -1,0 +1,15 @@
+[Unit]
+Description=Collec Django webapp
+After=network.target
+
+[Service]
+Type=simple
+User=web
+Group=web
+Environment="COLLEC_SECRET_KEY=qwertyuiop1234567890"
+Environment="COLLEC_HOST=your.domain.name"
+Environment="COLLEC_POSTGRES_PASSWORD=qwertyuiop1234567890"
+ExecStart=/srv/http/collec/venv/bin/gunicorn --chdir /srv/http/collec -c /srv/http/collec/gunicorn.conf.py collec.wsgi
+
+[Install]
+WantedBy=multi-user.target

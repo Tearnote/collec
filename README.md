@@ -60,6 +60,77 @@ All dependencies are included, or installed via requirements.txt.
 -   [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms): Django library that improves form rendering,
 -   [django-allauth](https://www.intenct.nl/projects/django-allauth/): Django library that expands on the built-in user authentication.
 
+## Deployment
+
+*Collec* is a Django web-app, and is deployed via the standard Django procedures. A number of settings is exposed via environment variables, some of which must be set for the app to load:
+
+-   `COLLEC_SECRET_KEY`: required. Must be set to any string, as long as it's kept secret. Make sure the key is not present in committed code, logs, etc.
+-   `COLLEC_DEBUG`: if set, *Collec* will start in debug mode. Errors will be printed on the site, potentially exposing sensitive information. Use only for debugging and development.
+-   `COLLEC_HOST`: required if `COLLEC_DEBUG` is not set. Hostname that will be used to access the site, such as `collec.example.com`. Accesses from any other source will be denied.
+
+### Deployment example
+
+*Collec* can be deployed via a number of methods - to a dedicated server, application platform such as S3 or Heroku, a Docker container, etc. The instance [above](#collec--a-collection-tracker-webapp) was deployed to a virtual environment (venv) in a dedicated server. The procedure will be detailed below for reference.
+
+Prerequisites:
+
+-   Server is running a Linux distribution with systemd,
+-   Nginx is installed and running,
+-   PostgreSQL is installed and running.
+
+1.  Navigate to the destination folder that will store the application, such as `/srv/http`,
+2.  Clone the repository:  
+    ```
+    git clone https://github.com/Tearnote/collec
+    ```
+3.  We need to set up a virtual environment for Python. Enter the cloned project, and create a fresh virtualenv:  
+    ```
+    python -m venv venv
+    ```
+4.  Activate the virtual environment in current shell. This should add `(venv)` to your visible command line:  
+    ```
+    source venv/bin/activate
+    ```
+5.  Dependencies can now be installed with the following command:  
+    ```
+    pip install -r requirements.txt
+    ```
+6.  The dependencies include Gunicorn and Psycopg2, which will be required for a production deployment. Gunicorn will need to be configured separately to match your deployment. An example configuration file is included [here](doc/gunicorn.conf.py). Copy this to the root folder of the project, and customize it with your server's paths.
+7.  We will now configure the database. *Collec* is by default configured to use a Sqlite database file, which is only suitable for a test deployment with few concurrent users. Configure your Postgres connection in `collec/settings.py`. An example commented-out configuration is included.
+8.  The database and user needs to be created on Postgres side. These example commands will configure the database for use, customize them to match your deployment:  
+    ```
+    sudo -u postgres psql
+    create database collec;
+    create user collec with password 'collec';
+    alter role collec set client_encoding to 'utf8';
+    alter role collec set default_transaction_isolation to 'read committed';
+    alter role collec set timezone to 'UTC';
+    grant all privileges on database collec to collec;
+    \q
+    ```
+9.  Now, you should be able to connect to the database to create all the required tables. Navigate to the project folder, activate the venv again if needed (step 4.), and run the following commands:  
+    ```
+    # Temporarily set all the env vars required for the project to run
+    export COLLEC_SECRET_KEY=yoursecretkey
+    export COLLEC_HOST=collec.example.com
+    export COLLEC_POSTGRES_PASSWORD=yourpassword
+    
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+10. Optionally, you might want to configure *Collec* as a systemd service so that it's started automatically. An example systemd unit file is available [here](doc/collec.service). Customize the file with your credentials and paths, drop it into `/etc/systemd/system/`, and run these commands to reload unit files and start *Collec*:  
+    ```
+    sudo systemctl daemon-reload
+    sudo systemctl start collec
+    ```  
+    If the unit doesn't start correctly, look for errors in the system journal and the Gunicorn log file as configured in `gunicorn.conf.py` (step 6.)
+11. The app is now running, and it's time to expose it to the world via Nginx reverse proxy. This needs to be configured to match your domain name, serving methods and SSL setup, among others. You can find an example Nginx configuration file [here](doc/nginx-collec.conf), which needs to be customized with domain names and local paths. The file assumes the app is hosted on `localhost:8001`, which matches the example Gunicorn configuration file.
+12. You should be able to view the app via its URL, but the styles and images will not work. For that, static files must be hosted via Nginx. Collect all static files by navigating to the project folder, activating the venv (step 4.), and running the following command:  
+    ```
+    python manage.py collectstatic
+    ```  
+    This will copy all static files into the `static` folder in the project. The default Nginx configuration will serve these files directly.
+
 ## Credits
 
 [Landing page photo](https://www.pexels.com/photo/books-768125/) by [Emily](https://www.pexels.com/@emily-252615/)
