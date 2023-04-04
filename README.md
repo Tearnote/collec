@@ -1,5 +1,7 @@
 # Collec: a collection tracker webapp
 
+![Mock-up of the frontpage showing on a number of different devices](doc/mockup.png)
+
 *Collec* is a webapp for tracking several types of collections. It was originally made for [Code Institute](https://codeinstitute.net/)'s 4th submission project.
 
 ## Important notes
@@ -43,18 +45,18 @@ Every page is trivially responsive with wrapping UI elements and grids.
 
 ## Technologies used
 
--   Python 3: Used for the backend portion of the app
--   HTML5+CSS3: Design of the frontend
--   Javascript (ES6): Interactive functionality and AJAX calls
+-   Python 3: Used for the backend portion of the app,
+-   HTML5+CSS3: Design of the frontend,
+-   Javascript (ES6): Interactive functionality and AJAX calls.
 
 ## Dependencies
 
 All dependencies are included, or installed via requirements.txt.
 
--   [Django 4.1](https://www.djangoproject.com): backend framework used to serve the app to the browser and as a RESTful interface to manipulate the models
--   [Bootstrap 5](https://getbootstrap.com): CSS framework for grid layout and improved based styles
--   [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms): Django library that improves form rendering
--   [django-allauth](https://www.intenct.nl/projects/django-allauth/): Django library that expands on the built-in user authentication
+-   [Django 4.1](https://www.djangoproject.com): backend framework used to serve the app to the browser and as a RESTful interface to manipulate the models,
+-   [Bootstrap 5](https://getbootstrap.com): CSS framework for grid layout and improved based styles,
+-   [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms): Django library that improves form rendering,
+-   [django-allauth](https://www.intenct.nl/projects/django-allauth/): Django library that expands on the built-in user authentication.
 
 ## Credits
 
