@@ -70,7 +70,7 @@ All dependencies are included, or installed via requirements.txt.
 
 ### Deployment example
 
-*Collec* can be deployed via a number of methods - to a dedicated server, application platform such as S3 or Heroku, a Docker container, etc. The instance [above](#collec--a-collection-tracker-webapp) was deployed to a virtual environment (venv) in a dedicated server. The procedure will be detailed below for reference.
+*Collec* can be deployed via a number of methods - to a dedicated server, application platform such as S3 or Heroku, a Docker container, etc. The instance [above](#collec-a-collection-tracker-webapp) was deployed to a virtual environment (venv) in a dedicated server. The procedure will be detailed below for reference.
 
 Prerequisites:
 
@@ -130,6 +130,8 @@ Prerequisites:
     python manage.py collectstatic
     ```  
     This will copy all static files into the `static` folder in the project. The default Nginx configuration will serve these files directly.
+
+## Bugs
 
 ## Credits
 
